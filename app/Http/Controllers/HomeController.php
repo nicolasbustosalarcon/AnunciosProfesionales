@@ -57,26 +57,6 @@ class HomeController extends Controller
             ->orderBy('a.idanuncio','asc')//Se ordenan por el id del anuncio
             ->paginate(1);
 
-            $agregar_palabra=DB::table('palabras_buscadas')->get();
-            $nueva_palabra=new Palabras;
-            $ciclo = '1';
-            foreach ($agregar_palabra as $agr) {
-                if($ciclo == '1'){
-                    if (strcasecmp($query, $agr->palabra) == '0') {
-                        $palabra_actualizar=Palabras::findOrFail($agr->idpalabra);
-                        $palabra_actualizar->cantidad = $palabra_actualizar->cantidad + 1;
-                        $palabra_actualizar->update();
-                        $ciclo = '0';
-                    }
-                }
-            }
-
-            if($ciclo == '1'){
-                $nueva_palabra->palabra = $query;
-                $nueva_palabra->cantidad = 1;
-                $nueva_palabra->save();
-            }
-
 
             return view('almacen.secretaria.index',["anuncios"=>$anuncios,"searchText"=>$query,"categorias"=>$categorias,"regiones"=>$regiones]);//se retorna la vista de la secretaria y se envian los parametros necesarios para mostrar la vista
         }
@@ -100,7 +80,7 @@ class HomeController extends Controller
             ->orwhere('a.estado','=','1')
             ->where('a.descripcion','LIKE','%'.$query.'%')
             ->orderBy('a.idanuncio','asc')
-            ->paginate(7);
+            ->paginate(6);
             return view('almacen.anuncio.index',["anuncios"=>$anuncios,"nombre_red"=>$nombre_red,"searchText"=>$query,"redes_sociales"=>$redes_sociales]);
         }
 

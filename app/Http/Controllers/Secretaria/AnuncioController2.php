@@ -75,7 +75,7 @@ class AnuncioController2 extends Controller
         $anuncio->precio=$request->get('precio');
         $anuncio->tipo_anuncio=$request->get('tipo_anuncio');
         $anuncio->save();
-        return Redirect::to('almacen/secretaria');
+        return Redirect::to('almacen/secretaria_anuncio');
 
     }
     public function show($id)
@@ -109,7 +109,7 @@ class AnuncioController2 extends Controller
         $anuncio->comentario_secretaria=$request->get('comentario');
         $anuncio->id_secretaria=Auth::user()->id;
         $anuncio->update();
-        return Redirect::to('almacen/secretaria');
+        return Redirect::to('almacen/secretaria_anuncio');
     }
     public function destroy($id)
     {
@@ -126,6 +126,6 @@ class AnuncioController2 extends Controller
         $anuncio->id_secretaria=Auth::user()->id;
         $anuncio->estado='1';//Si la secretaria acepta el anuncio, éste cambia de estado y se publica.
         $anuncio->update();
-        return Redirect::to('almacen/secretaria');
+        return Redirect::to('almacen/secretaria_anuncio');
     }
 }

@@ -43,28 +43,29 @@ class AnuncioController extends Controller
             ->orwhere('a.estado','=','1')
             ->where('a.descripcion','LIKE','%'.$query.'%')
             ->orderBy('a.idanuncio','asc')
-            ->paginate(5);
+            ->paginate(6);
 
 
-            
             $agregar_palabra=DB::table('palabras_buscadas')->get();
-            $nueva_palabra=new Palabras;
             $ciclo = '1';
-            foreach ($agregar_palabra as $agr) {
-                if($ciclo == '1'){
-                    if (strcasecmp($query, $agr->palabra) == '0') {
-                        $palabra_actualizar=Palabras::findOrFail($agr->idpalabra);
-                        $palabra_actualizar->cantidad = $palabra_actualizar->cantidad + 1;
-                        $palabra_actualizar->update();
-                        $ciclo = '0';
+            if ($query != '') {
+                $nueva_palabra=new Palabras;
+                foreach ($agregar_palabra as $agr) {
+                    if($ciclo == '1'){
+                        if (strcasecmp($query, $agr->palabra) == '0') {
+                            $palabra_actualizar=Palabras::findOrFail($agr->idpalabra);
+                            $palabra_actualizar->cantidad = $palabra_actualizar->cantidad + 1;
+                            $palabra_actualizar->update();
+                            $ciclo = '0';
+                        }
                     }
                 }
-            }
 
-            if($ciclo == '1'){
-                $nueva_palabra->palabra = $query;
-                $nueva_palabra->cantidad = 1;
-                $nueva_palabra->save();
+                if($ciclo == '1'){
+                    $nueva_palabra->palabra = $query;
+                    $nueva_palabra->cantidad = 1;
+                    $nueva_palabra->save();
+                }
             }
 
             return view('almacen.anuncio.index',["anuncios"=>$anuncios,"nombre_red"=>$nombre_red,"searchText"=>$query,"redes_sociales"=>$redes_sociales]);

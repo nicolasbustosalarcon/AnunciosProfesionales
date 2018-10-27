@@ -13,12 +13,44 @@ use PDF;
 
 class ReporteUsuariosController extends Controller
 {
-	public function store (Request $request)
-	{
+    public function store (Request $request)
+    {
         $fechainicio=$request->get('fecha_inicio');
         $fechafin=$request->get('fecha_fin');
 
-        $region_tabla=DB::table('region')
+        $usuarios=DB::table('users')
+        ->where('users.tipo_usuario','=','0')
+        ->get();
+        $regiones = array(array('region','cantidad'));//Se inicia el arreglo que contendra las regiones y su cantidad respectiva ded anuncios
+
+
+        for ($i=0; $i < 100; $i++) { //se inicia el arreglo con datos nulos
+            $regiones[$i]['region']= 'region no definida';
+        }
+
+        for ($i=0; $i < 100; $i++) {
+            $regiones[$i]['cantidad']= 0;
+        }
+
+        //for ($i2=0; $i2 < 100; $i2++) {
+        $contador = 0;
+        foreach ($usuarios as $us) {
+            $encontrado = 0;
+            for ($i=0; $i < 100; $i++) {
+                if (strcmp($us->direccion_region,$regiones[$i]['region']) == 0) {
+                    $regiones[$i]['cantidad'] = $regiones[$i]['cantidad'] + 1;
+                    $encontrado = 1;
+                }
+            }
+            if ($encontrado == 0) {
+                $regiones[$contador]['region']=$us->direccion_region;
+                $regiones[$contador]['cantidad'] = 1;
+                $contador = $contador + 1;
+            }        
+        //}
+    }
+
+        /*$region_tabla=DB::table('region')
         ->select('region.idregion','region.nombre_region')
         ->where('region.estado','=','1')
         ->get();
@@ -60,7 +92,7 @@ class ReporteUsuariosController extends Controller
                     }                    
                 }
             }
-        }
+        }*/
         return view("almacen.graficos.informeusuarios",['regiones' => $regiones]);
         
     }

@@ -6,9 +6,6 @@
 		<h3>Listado de Anuncios <a href="{{url('almacen/anuncio/create')}}"><button class="btn btn-success">Nuevo</button></a></h3>
 		@include('almacen.anuncio.search')
 	</div>
-	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<a href="{{url('../anunciosusuario/anunciospersonales')}}"><button class="btn btn-danger">Mis Anuncios</button></a>
-	</div>
 </div>
 <div class= "row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12"">
@@ -23,6 +20,7 @@
 											<a href="{{URL::action('Usuario\AnuncioController@show',[$anun->idanuncio,20])}}" class="full-width post-info-title">Titulo: {{ $anun->titulo}}</a>
 											<p class="full-width post-info-price">Precio: $ {{ $anun->precio}}</p>
 											<p class="post-info-zone">Región: {{ $anun->region}}</p>
+											<p class="post-info-zone">Categoría: {{ $anun->categoria}}</p>
 								</div>
 							</div>
 				</div>			
