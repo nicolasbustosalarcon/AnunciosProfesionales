@@ -22,12 +22,12 @@ class PalabrasBuscadasController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index(Request $request)
+    public function index(Request $request)//Funcion que muestra las palabras que mas se han buscado
     {
         if ($request)
         {
             $palabras=DB::table('palabras_buscadas')
-            ->orderBy('palabras_buscadas.cantidad','des')
+            ->orderBy('palabras_buscadas.cantidad','des')//Se ordenan según su id
             ->get();
 
             
@@ -37,7 +37,7 @@ class PalabrasBuscadasController extends Controller
                     $borrar->delete();
                 }
             }
-            return view('almacen.palabras_buscadas.palabras_buscadas',["palabras"=>$palabras]);
+            return view('almacen.palabras_buscadas.palabras_buscadas',["palabras"=>$palabras]);//Se retorna la vista con el listado de palabras
         }
     }
 }
