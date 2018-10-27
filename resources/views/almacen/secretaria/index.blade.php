@@ -10,11 +10,11 @@
         <h3 class="display-4">Reporte General de Regiones</h3>
         <div class="form-group" style="width: 50%;">
             <label for="">Fecha Inicio</label>
-            <input type="date" name="fecha_inicio" class="form-control">
+            <input type="date" name="fecha_inicio" class="form-control" max="<?php echo date('Y-m-d');?>">
         </div>
         <div class="form-group" style="width: 50%;">
             <label for="">Fecha Final</label>
-            <input type="date" name="fecha_fin"  class="form-control">
+            <input type="date" name="fecha_fin"  class="form-control" max="<?php echo date('Y-m-d');?>">
         </div>
         <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
             <div class="form-group" style="width: 50%;">
@@ -32,11 +32,11 @@
         <h3 class="display-4">Reporte General de Categorias</h3>
         <div class="form-group" style="width: 50%;">
             <label for="">Fecha Inicio</label>
-            <input type="date" name="fecha_inicio" class="form-control">
+            <input type="date" name="fecha_inicio" class="form-control" max="<?php echo date('Y-m-d');?>">
         </div>
         <div class="form-group" style="width: 50%;">
             <label for="">Fecha Final</label>
-            <input type="date" name="fecha_fin"  class="form-control">
+            <input type="date" name="fecha_fin"  class="form-control" max="<?php echo date('Y-m-d');?>">
         </div>
         <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
             <div class="form-group" style="width: 50%;">
@@ -55,11 +55,11 @@
         <h3 class="display-3">Reporte de Usuarios</h3>
         <div class="form-group" style="width: 50%;">
             <label for="">Fecha Inicio</label>
-            <input type="date" name="fecha_inicio" class="form-control">
+            <input type="date" name="fecha_inicio" class="form-control" max="<?php echo date('Y-m-d');?>">
         </div>
         <div class="form-group" style="width: 50%;">
             <label for="">Fecha Final</label>
-            <input type="date" name="fecha_fin"  class="form-control">
+            <input type="date" name="fecha_fin"  class="form-control" max="<?php echo date('Y-m-d');?>">
         </div> 
         <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
             <div class="form-group" style="width: 50%;">
