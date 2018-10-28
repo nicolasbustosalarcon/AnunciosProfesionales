@@ -1,0 +1,74 @@
+Asignatura: Ingenieria de Software II
+Nombre del Proyecto: Anuncios Profesionales : PublicaloYA!
+
+Integrantes:	Nicolás Bustos Alarcón	(nicolasbustos1996@gmail.com)
+	     	Luis Fuenzalida Lizana	(luisfuenzalidalizana@gmail.com)
+
+Empezamos a utilizar github Profesor, aquí adjunto el link del repositorio:
+https://github.com/nicolasbustosalarcon/AnunciosProfesionales
+
+
+Instrucciones de instalación:
+
+Descomprimir el archivo rar AnunciosProfesionales, contendrá la carpeta del proyecto junto
+a la Base de datos.
+
+Se deberá tener instalado xampp, laravel y composer.
+
+Luego de tener activado el xampp en la casilla de Apache y Mysql
+
+entrar a:
+		localhost/phpmyadmin
+
+Apretar en la barra izquierda Nueva:
+	nombrar como db_anunciosprofesionales y colocar utf8_spanish_ci y crear.
+
+Apretar en la base de datos creada:
+	Buscar arriba en el medio IMPORTAR y seleccionar archivo de BD: db_anunciosprofesionales.sql
+Luego abrir la carpeta AnunciosProfesionales y revisar el archivo .env que este configurado de la manera siguiente en las lineas DB...
+	
+DB_CONNECTION=mysql
+	DB_HOST=127.0.0.1
+	DB_PORT=3306
+	DB_DATABASE=db_anunciosprofesionales
+	DB_USERNAME=root
+	DB_PASSWORD=
+
+Luego abrir la consola de comandos, ubicarse en el directorio del proyecto y ejecutar
+		php artisan serve
+
+Finalmente escribir:
+		localhost:8000
+
+
+Actores que estan registrados en el sistema
+
+ADMIN
+email: admin@gmail.com
+pass:  pass1234
+
+Usuarios
+
+email: nicolasbustos1996@gmail.com	
+pass:  pass1234
+
+email: luisfuenzalidalizana@gmail.com	
+pass:  pass1234
+
+email: juanion_chile@gmail.com	
+pass:  pass1234
+
+email: djk.tre@gmail.com	
+pass:  pass1234
+
+
+Secretarias
+
+email: secretaria1@gmail.com
+pass:  pass1234
+
+email: secretaria2@gmail.com
+pass:  pass1234
+
+email: secretaria3@gmail.com
+pass:  pass1234
