@@ -123,6 +123,28 @@
             </div>
         </div> 
     </div>
+    <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
+        <div class="form-group">
+            <h3 class="display-4">Anuncios más populares</h3>
+        </div>
+        <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
+            <div class="form-group" style="width: 50%;">
+                <a href="graficos/like"><button class='btn btn-primary'>Generar Reporte</button></a>
+            </div>
+        </div> 
+    </div>
+
+    <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
+        <div class="form-group">
+            <h3 class="display-4">Anuncios menos populares</h3>
+        </div>
+        <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
+            <div class="form-group" style="width: 50%;">
+                <a href="graficos/deslike"><button class='btn btn-primary'>Generar Reporte</button></a>
+            </div>
+        </div> 
+    </div>
+
     </div>
 
 

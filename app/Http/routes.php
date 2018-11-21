@@ -55,6 +55,8 @@ Route::resource('almacen/graficos/pdf', 'Graficos\ReporteGeneralController');
 Route::resource('almacen/graficos/maule', 'Graficos\ReportController');
 Route::resource('almacen/graficos/categorias', 'Graficos\ReporteCategoriasController');
 Route::get('almacen/graficos/informe_palabras','Graficos\ReportController@informe_palabras_buscadas');
+Route::get('almacen/graficos/like','Graficos\ReportController@anuncios_like');
+Route::get('almacen/graficos/deslike','Graficos\ReportController@anuncios_deslike');
 
 Route::resource('almacen/censura','Administrador\CensuraController');
 

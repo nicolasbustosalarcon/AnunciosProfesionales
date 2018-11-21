@@ -21,6 +21,80 @@ class ReportController extends Controller//Controller para generar el PDF
 
     }
 
+    public function anuncios_like()
+    {
+        $tabla_likes = DB::table('tabla_like')->get();
+        $anuncios = DB::table('anuncio')->get();
+        $likes = array(array('titulo_anuncio','cantidad'));//Se inicia el arreglo que contendra las regiones y su cantidad respectiva ded anuncios
+
+
+        for ($i=0; $i < 100; $i++) { //se inicia el arreglo con datos nulos
+            $likes[$i]['titulo_anuncio']= 'anuncio no definido';
+        }
+
+        for ($i=0; $i < 100; $i++) {
+            $likes[$i]['cantidad']= 0;
+        }
+
+        for ($i=0; $i < 100; $i++) { 
+            foreach($anuncios as $anun){
+                if ($anun->idanuncio==$i) {//Se ingresa el nombre de la region en relación a su ID
+                    $likes[$i]['titulo_anuncio'] = $anun->titulo;
+                }
+            }
+        }
+
+
+
+        for ($i=0; $i < 100; $i++) {//Recorre el arreglo y va sumando cada vez que encuentra un anuncio de cierta categoria
+            foreach ($tabla_likes as $like) {
+                if ($like->id_anuncio == $i) {
+                    if ($like->estado == 1) {
+                        $likes[$i]['cantidad'] = $likes[$i]['cantidad'] + 1;
+                    }
+                }
+            }
+        }
+        return view("almacen.graficos.like",["likes" => $likes]);
+    }
+
+
+    public function anuncios_deslike()
+    {
+        $tabla_likes = DB::table('tabla_like')->get();
+        $anuncios = DB::table('anuncio')->get();
+        $likes = array(array('titulo_anuncio','cantidad'));//Se inicia el arreglo que contendra las regiones y su cantidad respectiva ded anuncios
+
+
+        for ($i=0; $i < 100; $i++) { //se inicia el arreglo con datos nulos
+            $likes[$i]['titulo_anuncio']= 'anuncio no definido';
+        }
+
+        for ($i=0; $i < 100; $i++) {
+            $likes[$i]['cantidad']= 0;
+        }
+
+        for ($i=0; $i < 100; $i++) { 
+            foreach($anuncios as $anun){
+                if ($anun->idanuncio==$i) {//Se ingresa el nombre de la region en relación a su ID
+                    $likes[$i]['titulo_anuncio'] = $anun->titulo;
+                }
+            }
+        }
+
+
+
+        for ($i=0; $i < 100; $i++) {//Recorre el arreglo y va sumando cada vez que encuentra un anuncio de cierta categoria
+            foreach ($tabla_likes as $like) {
+                if ($like->id_anuncio == $i) {
+                    if ($like->estado == 2) {
+                        $likes[$i]['cantidad'] = $likes[$i]['cantidad'] + 1;
+                    }
+                }
+            }
+        }
+        return view("almacen.graficos.deslike",["likes" => $likes]);
+    }
     public function store (Request $request)//Funcion que obtiene los parámetros para generar los informes.
     {
         $region=$request->get('region');//Se obtiene la región.
