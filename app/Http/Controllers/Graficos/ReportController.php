@@ -14,6 +14,13 @@ use PDF;
 class ReportController extends Controller//Controller para generar el PDF
 {
 
+    public function informe_palabras_buscadas ()
+    {
+        $palabras = DB::table('palabras_buscadas')->get();
+        return view("almacen.graficos.informe_palabras",["palabras" => $palabras]);
+
+    }
+
     public function store (Request $request)//Funcion que obtiene los parámetros para generar los informes.
     {
         $region=$request->get('region');//Se obtiene la región.

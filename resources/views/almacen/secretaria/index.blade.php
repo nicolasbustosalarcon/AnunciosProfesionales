@@ -112,6 +112,17 @@
         </div> 
     </div>
     {!!Form::close()!!}
+
+    <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
+        <div class="form-group">
+            <h3 class="display-4">Reporte de Palabras</h3>
+        </div>
+        <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
+            <div class="form-group" style="width: 50%;">
+                <a href="graficos/informe_palabras"><button class='btn btn-primary'>Generar Reporte</button></a>
+            </div>
+        </div> 
+    </div>
     </div>
 
 
