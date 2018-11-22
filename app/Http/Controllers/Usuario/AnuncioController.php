@@ -42,7 +42,8 @@ class AnuncioController extends Controller
             ->where('c.nombre','LIKE','%'.$query.'%')
             ->orwhere('a.estado','=','1')
             ->where('a.descripcion','LIKE','%'.$query.'%')
-            ->orderBy('a.idanuncio','asc')
+            ->orderBy('ta.precio_anuncio','desc')
+            ->orderBy('a.fecha_caducidad','desc')
             ->paginate(6);
 
 
