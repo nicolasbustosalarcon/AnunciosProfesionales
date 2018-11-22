@@ -42,7 +42,8 @@ class AnuncioController extends Controller
             ->where('c.nombre','LIKE','%'.$query.'%')
             ->orwhere('a.estado','=','1')
             ->where('a.descripcion','LIKE','%'.$query.'%')
-            ->orderBy('a.idanuncio','asc')
+            ->orderBy('ta.precio_anuncio','desc')
+            ->orderBy('a.fecha_caducidad','desc')
             ->paginate(6);
 
 
@@ -99,6 +100,16 @@ class AnuncioController extends Controller
         	$file=Input::file('imagen');
         	$file->move(public_path().'/imagenes/anuncios/',$file->getClientOriginalName());
         	$anuncio->imagen=$file->getClientOriginalName();
+        }
+        if(Input::hasfile('imagen3')){
+            $file=Input::file('imagen2');
+            $file->move(public_path().'/imagenes/anuncios/',$file->getClientOriginalName());
+            $anuncio->imagen2=$file->getClientOriginalName();
+        }
+        if(Input::hasfile('imagen3')){
+            $file=Input::file('imagen3');
+            $file->move(public_path().'/imagenes/anuncios/',$file->getClientOriginalName());
+            $anuncio->imagen3=$file->getClientOriginalName();
         }
         $anuncio->tipo_anuncio=$request->get('tipo_anuncio');
         $anuncio->precio=$request->get('precio');

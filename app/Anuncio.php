@@ -22,6 +22,8 @@ class Anuncio extends Model
     	'estado',
     	'idusuario',
     	'imagen',
+        'imagen2',
+        'imagen3',
     	'precio',
     	'tipo_anuncio',
         'comentario_secretaria',

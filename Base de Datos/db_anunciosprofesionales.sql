@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-10-2018 a las 21:48:03
+-- Tiempo de generación: 22-11-2018 a las 22:18:30
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -37,6 +37,8 @@ CREATE TABLE `anuncio` (
   `estado` int(11) DEFAULT NULL,
   `idusuario` int(11) DEFAULT NULL,
   `imagen` longblob,
+  `imagen2` longblob,
+  `imagen3` longblob,
   `precio` int(11) DEFAULT NULL,
   `tipo_anuncio` int(11) DEFAULT NULL,
   `comentario_secretaria` varchar(200) COLLATE utf8_spanish2_ci DEFAULT NULL,
@@ -49,16 +51,17 @@ CREATE TABLE `anuncio` (
 -- Volcado de datos para la tabla `anuncio`
 --
 
-INSERT INTO `anuncio` (`idanuncio`, `titulo`, `region`, `idcategoria`, `descripcion`, `estado`, `idusuario`, `imagen`, `precio`, `tipo_anuncio`, `comentario_secretaria`, `id_secretaria`, `fecha_publicacion`, `fecha_caducidad`) VALUES
-(6, 'Balón Nike', 8, 1, 'Original                ', 1, 1, 0x3030312d343035312d3034345f646574616c6865312e6a7067, 9990, 1, NULL, 2, '2018-10-24', '2018-11-24'),
-(7, 'Zapatos de Fútbol', 8, 1, 'Nike Originales, buen estado             ', 1, 1, 0x696d616765732e6a7067, 19990, 1, NULL, 2, '2018-10-14', '2018-11-24'),
-(12, 'iPhone SE', 5, 4, 'iPhone SE 32GB Buen estado, todos sus accesorios           ', 1, 5, 0x6970686f6e652d73652d323031372e6a7067, 120000, 1, NULL, 2, '2018-10-25', '2018-11-24'),
-(13, 'Notebook HP', 8, 2, 'Notebook HP NUEVO.                ', 1, 5, 0x6330353437353038302e706e67, 200000, 1, NULL, 2, '2018-10-25', '2018-11-24'),
-(14, 'Monitor Samsung', 8, 2, 'Monitor Buen estado', 2, 5, 0x6d6f6e69746f722e6a7067, 70000, 1, NULL, NULL, NULL, NULL),
-(15, 'Guantes Arquero', 8, 1, 'Guantes NIKE Nuevos                ', 1, 4, 0x6775616e7465732e6a7067, 14990, 1, NULL, 2, '2018-10-25', '2018-11-24'),
-(16, 'Xiaomi Redmi 4A', 8, 4, 'Buen estado.             ', 1, 4, 0x7869616f6d692e6a706567, 60000, 1, NULL, 2, '2018-10-25', '2018-11-24'),
-(17, 'Auto Usado', 8, 3, 'Auto Usado, papeles al día, precio conversable  ', 2, 4, 0x6175746f2e6a7067, 2900000, 1, NULL, NULL, NULL, NULL),
-(18, 'iPhone 6S', 8, 4, 'iPhone 6s 16GB Buen estado               ', 1, 1, 0x6970686f6e6536735f706c757373706772795f312e6a7067, 160000, 1, NULL, 6, '2018-10-25', '2018-11-24');
+INSERT INTO `anuncio` (`idanuncio`, `titulo`, `region`, `idcategoria`, `descripcion`, `estado`, `idusuario`, `imagen`, `imagen2`, `imagen3`, `precio`, `tipo_anuncio`, `comentario_secretaria`, `id_secretaria`, `fecha_publicacion`, `fecha_caducidad`) VALUES
+(6, 'Balón Nike', '8', 1, 'Original                ', 1, 1, 0x3030312d343035312d3034345f646574616c6865312e6a7067, NULL, NULL, 9990, 1, NULL, 2, '2018-10-24', '2018-11-24'),
+(7, 'Zapatos de Fútbol', '8', 1, 'Nike Originales, buen estado             ', 1, 1, 0x696d616765732e6a7067, NULL, NULL, 19990, 1, NULL, 2, '2018-10-14', '2018-11-24'),
+(12, 'iPhone SE', '5', 4, 'iPhone SE 32GB Buen estado, todos sus accesorios           ', 1, 5, 0x6970686f6e652d73652d323031372e6a7067, NULL, NULL, 120000, 1, NULL, 2, '2018-10-25', '2018-11-24'),
+(13, 'Notebook HP', '8', 2, 'Notebook HP NUEVO.                ', 1, 5, 0x6330353437353038302e706e67, NULL, NULL, 200000, 1, NULL, 2, '2018-10-25', '2018-11-24'),
+(14, 'Monitor Samsung', '8', 2, 'Monitor Buen estado', 2, 5, 0x6d6f6e69746f722e6a7067, NULL, NULL, 70000, 1, NULL, NULL, NULL, NULL),
+(15, 'Guantes Arquero', '8', 1, 'Guantes NIKE Nuevos                ', 1, 4, 0x6775616e7465732e6a7067, NULL, NULL, 14990, 1, NULL, 2, '2018-10-25', '2018-11-24'),
+(16, 'Xiaomi Redmi 4A', '8', 4, 'Buen estado.             ', 1, 4, 0x7869616f6d692e6a706567, NULL, NULL, 60000, 1, NULL, 2, '2018-10-25', '2018-11-24'),
+(17, 'Auto Usado', '8', 3, 'Auto Usado, papeles al día, precio conversable  ', 2, 4, 0x6175746f2e6a7067, NULL, NULL, 2900000, 1, NULL, NULL, NULL, NULL),
+(18, 'iPhone 6S', '8', 4, 'iPhone 6s 16GB Buen estado               ', 1, 1, 0x6970686f6e6536735f706c757373706772795f312e6a7067, NULL, NULL, 160000, 1, NULL, 6, '2018-10-25', '2018-11-24'),
+(19, 'Balonggggg', '8', 1, 'Nuevooo                ', 1, 1, 0x3030312d343035312d3034345f646574616c6865312e6a7067, 0x6175746f2e6a7067, 0x6330353437353038302e706e67, 12344, 1, NULL, 2, '2018-11-22', '2018-12-22');
 
 -- --------------------------------------------------------
 
@@ -95,7 +98,9 @@ INSERT INTO `anuncio_redsocial` (`id_anuncio_red`, `id_anuncio`, `id_redsocial`,
 (23, 17, 1, 'www.facebook.com/Juan'),
 (24, 17, 2, 'www.instagram.com/Juan'),
 (25, 18, 1, 'www.facebook.com/Nicolás'),
-(26, 18, 2, 'www.instagram.com/Nicolás');
+(26, 18, 2, 'www.instagram.com/Nicolás'),
+(27, 19, 1, 'www.facebook.com/alkjdalks'),
+(28, 19, 3, 'www.twitter.com&alkjflaks');
 
 -- --------------------------------------------------------
 
@@ -154,6 +159,21 @@ CREATE TABLE `diccionario_datos` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `mensaje`
+--
+
+CREATE TABLE `mensaje` (
+  `idmensaje` int(11) NOT NULL,
+  `id_anuncio` int(11) DEFAULT NULL,
+  `id_usuario_envia` int(11) DEFAULT NULL,
+  `id_usuario_recibe` int(11) DEFAULT NULL,
+  `mensaje` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `estado` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `migrations`
 --
 
@@ -167,6 +187,12 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
+('2014_10_12_000000_create_users_table', 1),
+('2014_10_12_100000_create_password_resets_table', 1),
+('2014_10_12_000000_create_users_table', 1),
+('2014_10_12_100000_create_password_resets_table', 1),
+('2014_10_12_000000_create_users_table', 1),
+('2014_10_12_100000_create_password_resets_table', 1),
 ('2014_10_12_000000_create_users_table', 1),
 ('2014_10_12_100000_create_password_resets_table', 1),
 ('2014_10_12_000000_create_users_table', 1),
@@ -192,7 +218,8 @@ CREATE TABLE `palabras_buscadas` (
 
 INSERT INTO `palabras_buscadas` (`idpalabra`, `palabra`, `cantidad`) VALUES
 (1, 'Venta', 1),
-(4, 'iPhone', 1);
+(4, 'iPhone', 1),
+(5, 'Zapatos', 2);
 
 -- --------------------------------------------------------
 
@@ -274,6 +301,13 @@ CREATE TABLE `tabla_like` (
   `estado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
+--
+-- Volcado de datos para la tabla `tabla_like`
+--
+
+INSERT INTO `tabla_like` (`idlike`, `id_anuncio`, `id_usuario`, `estado`) VALUES
+(1, 12, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -323,10 +357,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `direccion_region`, `direccion_cuidad`, `email`, `password`, `telefono`, `edad`, `tipo_usuario`, `remember_token`, `created_at`, `updated_at`, `estado`) VALUES
-(1, 'Nicolás Bustos Alarcon', 'VII Maule', 'Linares', 'nicolasbustos1996@gmail.com', '$2y$10$Kpw7YlitpQTBIjjdt8jOf.2wUU684ojyxd9gSKQOydyTNQFQeDRfm', '77404443', 21, 0, 'hJcczSN7bO8FhiKi3BieXnCwfsd1hFfxdtntEwNZKLAMqNGHUXrnC07RMipB', '2018-07-02 21:19:11', '2018-10-25 17:44:29', 0),
-(2, 'Secretaria1', 'VII Maule', 'Curico', 'secretaria1@gmail.com', '$2y$10$SPZ2yMeAjKGnT8CwtUebOO.7sWFvlRgdbLsSU/ngjxVN0mPGvL6Z2', '77889966', 22, 1, 'AOYYnVIFsdwTgNe2ySJj04AXBj52YBXphRk7ml51937evxShD0v4v5FUpKo4', '2018-07-02 21:19:41', '2018-10-25 17:40:56', 0),
-(3, 'admin', 'VII Maule', 'Linares', 'admin@gmail.com', '$2y$10$axb8xSJNrDyltKwVUHKJWemHgN4ZxeDGIafuQ.VRfQuPFs3vdnkQW', '78945612', 21, 2, 'XNeRzY2VXmcdA8y0haGW5Mv7RaNkboMMVzR2Mxcxz2n1yqlccWbaFxJd8Bh8', '2018-07-02 21:20:10', '2018-10-25 17:45:03', 0),
-(4, 'Juan Aravena', 'VII Maule', 'Talca', 'juanion_chile@gmail.com', '$2y$10$dGUvbRJdIItXStx4qz4F0OxFY.ESISdPOQi4j5Ilg0Sr6n8/kPH06', '11223344', 22, 0, 'yUA7hwoXamesjALttP1jVpxyDAb7WKFDJcik4KXInGPzccAUJ0lrMXP6WWYW', '2018-10-25 17:02:01', '2018-10-25 17:43:14', 0),
+(1, 'Nicolás Bustos Alarcon', 'VII Maule', 'Linares', 'nicolasbustos1996@gmail.com', '$2y$10$Kpw7YlitpQTBIjjdt8jOf.2wUU684ojyxd9gSKQOydyTNQFQeDRfm', '77404443', 21, 0, 'x0ZkApsE1ZoSNwj3QHdSa1mNWBmHYYipcCo6Y2URiPem11hNcGU2teYr0vkE', '2018-07-02 21:19:11', '2018-11-22 19:16:25', 0),
+(2, 'Secretaria1', 'VII Maule', 'Curico', 'secretaria1@gmail.com', '$2y$10$SPZ2yMeAjKGnT8CwtUebOO.7sWFvlRgdbLsSU/ngjxVN0mPGvL6Z2', '77889966', 22, 1, 'heFUVHsqYPC9hlW4cg4peK7OJ0SRuZM172Wvl4KO3yeK3Kea2rureK6HJMRH', '2018-07-02 21:19:41', '2018-11-22 19:02:53', 0),
+(3, 'admin', 'VII Maule', 'Linares', 'admin@gmail.com', '$2y$10$axb8xSJNrDyltKwVUHKJWemHgN4ZxeDGIafuQ.VRfQuPFs3vdnkQW', '78945612', 21, 2, 'KxpTNKGa9WUJS0fdGYOlefnn2ZpbwgNTyVDNUPoIWCEKKD9zHX0qDulCd3Dc', '2018-07-02 21:20:10', '2018-11-22 19:03:01', 0),
+(4, 'Juan Aravena', 'VII Maule', 'Talca', 'juanion_chile@gmail.com', '$2y$10$dGUvbRJdIItXStx4qz4F0OxFY.ESISdPOQi4j5Ilg0Sr6n8/kPH06', '11223344', 22, 0, 'TCWithkzlXqPs80ktFa2xDDHVQSpQpzLeHDvWOlQ76lntzDZ7sV7zLfVcfXX', '2018-10-25 17:02:01', '2018-10-28 19:55:37', 0),
 (5, 'Luis Fuenzalida', 'VII Maule', 'Curicó', 'luisfuenzalidalizana@gmail.com', '$2y$10$Yvd0MNlLlBqdKT6YIyARLu6eWLlY8JQk1H0BbHB5PT0aoiENOAlqq', '88776655', 23, 0, 'BpctAcfjUDrPUEqUUmjZsQG9sQqh1d1IINGKxRisnPTPyJZIyCt26Gu47JDF', '2018-10-25 17:02:41', '2018-10-25 17:33:23', 0),
 (6, 'Secretaria2', 'VII Maule', 'Linares', 'secretaria2@gmail.com', '$2y$10$W.pBNWT9Oi0IgbDFJRdVW.jbToFAVAl1l8Yy4NjZmpFJLsnHe8cqG', '1122334455', 22, 1, 'Ez5X6J3KnBnablUqE00UBxLhq2AhfwIQoqto2RF76EPkUCqenfVp4kXCD7N7', '2018-10-25 17:03:51', '2018-10-25 17:40:20', 0),
 (7, 'Secretaria3', 'VII Maule', 'Talca', 'secretaria3@gmail.com', '$2y$10$C/ITf3Wt7JZXxa1SgQOoZ.pW.K3PFvscWmSrSN.sbbqrmMICnoLEO', '77441188', 20, 1, NULL, '2018-10-25 17:04:33', '2018-10-25 17:04:33', 0),
@@ -451,19 +485,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `anuncio`
 --
 ALTER TABLE `anuncio`
-  MODIFY `idanuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT de la tabla `anuncio`
---
-ALTER TABLE `tipo_anuncios`
-  MODIFY `idtipo_anuncios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idanuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `anuncio_redsocial`
 --
 ALTER TABLE `anuncio_redsocial`
-  MODIFY `id_anuncio_red` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_anuncio_red` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -505,13 +533,19 @@ ALTER TABLE `region`
 -- AUTO_INCREMENT de la tabla `tabla_like`
 --
 ALTER TABLE `tabla_like`
-  MODIFY `idlike` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idlike` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `tipo_anuncios`
+--
+ALTER TABLE `tipo_anuncios`
+  MODIFY `idtipo_anuncios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`

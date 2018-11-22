@@ -18,6 +18,25 @@
     <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    .carousel{
+        background: #FFFFFF;
+        margin-top: 10px;
+        height: 280px;
+        width: 360px;
+    }
+    .carousel .item{
+        min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+    }
+    .carousel .item img{
+        margin: 5 auto; /* Align slide image horizontally center */
+    }
+    .bs-example{
+      margin: 10px;
+    }
+    </style>
+
   </head>
   <body class="hold-transition skin-green-light sidebar-mini">
     <div class="wrapper">
@@ -175,7 +194,7 @@
       </footer>
 
       
-    <!-- jQuery 2.1.4 -->
+   <!-- jQuery 2.1.4 -->
     <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
