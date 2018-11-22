@@ -30,7 +30,10 @@ class AnuncioFormRequest extends Request
             'precio'=>'required|numeric',
             'redsocial1'=>'max:100',
             'redsocial2'=>'max:100',
-            'imagen'=>'mimes:jpeg,bmp,png'
+            'imagen'=>'mimes:jpeg,bmp,png',
+            'imagen2'=>'mimes:jpeg,bmp,png',
+            'imagen3'=>'mimes:jpeg,bmp,png'
+
         ];
     }
 }

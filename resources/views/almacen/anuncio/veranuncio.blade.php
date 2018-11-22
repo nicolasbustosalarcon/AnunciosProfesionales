@@ -16,9 +16,42 @@
   <div class="row">
       <div class="col-xs-12 col-sm-8">
                 <div class="item">
-                  @if (($anuncio->imagen)!="")
-                <img height="280px" width="360px" src="{{asset('imagenes/anuncios/'.$anuncio->imagen)}}">
-                  @endif
+                  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+                  <div class="bs-example">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Carousel indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>   
+                        <!-- Wrapper for carousel items -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                               @if (($anuncio->imagen)!="")
+                                <img src="{{asset('imagenes/anuncios/'.$anuncio->imagen)}}" alt="First Slide">
+                                @endif
+                            </div>
+                            <div class="item">
+                              @if (($anuncio->imagen2)!="")
+                                <img src="{{asset('imagenes/anuncios/'.$anuncio->imagen2)}}" alt="Second Slide">
+                                @endif
+                            </div>
+                            <div class="item">
+                              @if (($anuncio->imagen3)!="")
+                                <img src="{{asset('imagenes/anuncios/'.$anuncio->imagen3)}}" alt="Third Slide">
+                                @endif
+                            </div>
+                        </div>
+                        <!-- Carousel controls -->
+                        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
                   <div class="full-width" style="padding:10px; background-color: #F5F5F5; margin: 7px 0;">
                     <p class="lead text-left"><strong>Descripción </strong></p>
                     <p>{{$anuncio->descripcion}}</p>

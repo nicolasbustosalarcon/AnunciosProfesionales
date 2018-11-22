@@ -110,8 +110,12 @@
 
     	<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
     		<div class="form-group">
-            	<label for="imagen">Imagen</label>
+            	<label for="imagen">Imagen 1</label>
             	<input type="file" name="imagen" class="form-control">
+              <label for="imagen">Imagen 2</label>
+              <input type="file" name="imagen2" class="form-control">
+              <label for="imagen">Imagen 3</label>
+              <input type="file" name="imagen3" class="form-control">
             </div>
     	</div>
     </div>

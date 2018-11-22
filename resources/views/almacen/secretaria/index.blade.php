@@ -119,7 +119,7 @@
         </div>
         <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
             <div class="form-group" style="width: 50%;">
-                <a href="graficos/informe_palabras"><button class='btn btn-primary'>Generar Reporte</button></a>
+                <a href="almacen/graficos/informe_palabras"><button class='btn btn-primary'>Generar Reporte</button></a>
             </div>
         </div> 
     </div>
@@ -129,7 +129,7 @@
         </div>
         <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
             <div class="form-group" style="width: 50%;">
-                <a href="graficos/like"><button class='btn btn-primary'>Generar Reporte</button></a>
+                <a href="almacen/graficos/like"><button class='btn btn-primary'>Generar Reporte</button></a>
             </div>
         </div> 
     </div>
@@ -140,7 +140,7 @@
         </div>
         <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
             <div class="form-group" style="width: 50%;">
-                <a href="graficos/deslike"><button class='btn btn-primary'>Generar Reporte</button></a>
+                <a href="almacen/graficos/deslike"><button class='btn btn-primary'>Generar Reporte</button></a>
             </div>
         </div> 
     </div>

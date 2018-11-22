@@ -104,7 +104,7 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{url('almacen/palabras_buscadas')}}"><i class="fa fa-circle-o"></i>Plabras más Buscadas</a></li>
+                <li><a href="{{url('almacen/palabras_buscadas')}}"><i class="fa fa-circle-o"></i>Palabras más Buscadas</a></li>
                
               </ul>
             </li>
