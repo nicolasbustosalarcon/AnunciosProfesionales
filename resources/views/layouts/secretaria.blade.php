@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('css/AdminLTE.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/mark.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
@@ -175,6 +176,7 @@
         </div>
         
       </footer>
+  
 
       
     <!-- jQuery 2.1.4 -->
@@ -184,50 +186,27 @@
     <!-- AdminLTE App -->
     <script src="{{asset('js/app.min.js')}}"></script>
 
-    <script src="{{asset('js/jquery.mark.es6')}}"></script>
+    <script src="{{asset('js/jquery.mark.es6.js')}}"></script>
 
-    <script src="{{asset('js/mark')}}"></script>
+    <script src="{{asset('js/mark.js')}}"></script>
 
-    <script src="{{asset('js/mark.es6.min')}}"></script>
+    <script src="{{asset('js/mark.es6.min.js')}}"></script>
 
-    <script src="{{asset('js/mark.es6')}}"></script>
+    <script src="{{asset('js/mark.es6.js')}}"></script>
 
-    <script src="{{asset('js/jquery.mark.min')}}"></script>
+    <script src="{{asset('js/jquery.mark.min.js')}}"></script>
 
-    <script src="{{asset('js/jquery.mark')}}"></script>
+    <script src="{{asset('js/jquery.mark.js')}}"></script>
 
-    <script src="{{asset('js/jquery.mark.es6.min')}}"></script>
+    <script src="{{asset('js/jquery.mark.es6.min.js')}}"></script>
 
-    <script src="{{asset('js/jquery.mark.es6')}}"></script>
+    <script src="{{asset('js/jquery.mark.es6.js')}}"></script>
 
     <script src="js/highcharts.js"></script>
 
     <script src="js/graficas.js"></script>
 
     <script src="js/sistemalaravel.js"></script>
-
-    <script>
-      $(function() {
-        var mark = function() {
-        // Read the keyword
-        var keyword = $("input[name='keyword']").val();
-        // Determine selected options
-        var options = {};
-        $("input[name='opt[]']").each(function() {
-          options[$(this).val()] = $(this).is(":checked");
-        });
-        // Remove previous marked elements and mark
-        // the new keyword inside the context
-        $(".context").unmark({
-          done: function() {
-            $(".context").mark(keyword, options);
-          }
-        });
-      };
-      $("input[name='keyword']").on("input", mark);
-      $("input[type='checkbox']").on("change", mark);
-    });
-    </script>
 
 
   </body>

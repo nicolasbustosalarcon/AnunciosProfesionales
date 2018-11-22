@@ -5,6 +5,174 @@
 * Released under the MIT license https://git.io/vwTVl
 *****************************************************/
 
+
+$(function() {
+
+  var mark = function() {
+
+    // Read the keyword
+    var keyword = $("input[name='keyword']").val();
+
+    // Determine selected options
+    var options = {};
+    $("input[name='opt[]']").each(function() {
+      options[$(this).val()] = $(this).is(":checked");
+    });
+
+    // Remove previous marked elements and mark
+    // the new keyword inside the context
+    $(".context").unmark({
+      done: function() {
+        $(".context").mark(keyword, options);
+      }
+    });
+  };
+
+  $("input[name='keyword']").on("input", mark);
+  $("input[type='checkbox']").on("change", mark);
+
+});
+
+$(function() {
+
+  $("input[name='item']").on("keyup", function() {
+    var keyword = $(this).val(),
+      options = {
+        "element": "span",
+        "className": "markBlue",
+        "separateWordSearch": true
+      },
+      $ctx = $(".context table tr td:nth-child(2)");
+    $ctx.unmark({
+      done: function() {
+        $ctx.mark(keyword, options);
+      }
+    });
+  });
+  $("input[name='item']").on("keyup", function() {
+    var keyword = $(this).val(),
+      options = {
+        "element": "span",
+        "className": "markBlue",
+        "separateWordSearch": true
+      },
+      $ctx = $(".context table tr td:nth-child(3)");
+    $ctx.unmark({
+      done: function() {
+        $ctx.mark(keyword, options);
+      }
+    });
+  });
+  $("input[name='item']").on("keyup", function() {
+    var keyword = $(this).val(),
+      options = {
+        "element": "span",
+        "className": "markBlue",
+        "separateWordSearch": true
+      },
+      $ctx = $(".context table tr td:nth-child(4)");
+    $ctx.unmark({
+      done: function() {
+        $ctx.mark(keyword, options);
+      }
+    });
+  });
+  $("input[name='item']").on("keyup", function() {
+    var keyword = $(this).val(),
+      options = {
+        "element": "span",
+        "className": "markBlue",
+        "separateWordSearch": true
+      },
+      $ctx = $(".context table tr td:nth-child(5)");
+    $ctx.unmark({
+      done: function() {
+        $ctx.mark(keyword, options);
+      }
+    });
+  });
+  $("input[name='item']").on("keyup", function() {
+    var keyword = $(this).val(),
+      options = {
+        "element": "span",
+        "className": "markBlue",
+        "separateWordSearch": true
+      },
+      $ctx = $(".context table tr td:nth-child(6)");
+    $ctx.unmark({
+      done: function() {
+        $ctx.mark(keyword, options);
+      }
+    });
+  });
+  $("input[name='item']").on("keyup", function() {
+    var keyword = $(this).val(),
+      options = {
+        "element": "span",
+        "className": "markBlue",
+        "separateWordSearch": true
+      },
+      $ctx = $(".context table tr td:nth-child(7)");
+    $ctx.unmark({
+      done: function() {
+        $ctx.mark(keyword, options);
+      }
+    });
+  });
+  $("input[name='item']").on("keyup", function() {
+    var keyword = $(this).val(),
+      options = {
+        "element": "span",
+        "className": "markBlue",
+        "separateWordSearch": true
+      },
+      $ctx = $(".context table tr td:nth-child(9)");
+    $ctx.unmark({
+      done: function() {
+        $ctx.mark(keyword, options);
+      }
+    });
+  });
+  $("input[name='item']").on("keyup", function() {
+    var keyword = $(this).val(),
+      options = {
+        "element": "span",
+        "className": "markBlue",
+        "separateWordSearch": true
+      },
+      $ctx = $(".context table tr td:nth-child(10)");
+    $ctx.unmark({
+      done: function() {
+        $ctx.mark(keyword, options);
+      }
+    });
+  });
+
+
+
+
+
+
+
+  
+  $("input[name='seller']").on("keyup", function() {
+    var keyword = $(this).val(),
+      options = {
+        "element": "span",
+        "className": "markYellow",
+        "separateWordSearch": true
+      },
+      $ctx = $(".context table tr td:nth-child(3)");
+    $ctx.unmark({
+      done: function() {
+        $ctx.mark(keyword, options);
+      }
+    });
+  });
+
+});
+
+
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :

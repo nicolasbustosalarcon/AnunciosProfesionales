@@ -8,11 +8,22 @@
     </div>
 </div>
 
+<div class="panel panel-default">
+  <div class="panel-heading">Palabra a censurar</div>
+  <div class="panel-body">
+    <div class="search row">
+      <div class="col-xs-12">
+        <span>Escribir una palabra:</span>
+        <input type="text" name="item" class="form-control input-sm" placeholder="Palabra...">
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="table-responsive">
-            <table class="table table-striped table-bordered table-condensed table-hover">
+
+<div class="panel panel-default">
+    <div class="panel-body context">
+        <table class="table table-striped">
                 <thead>
                     <th>Id</th>
                     <th>Titulo</th>
@@ -55,8 +66,6 @@
         
         </div>
         {{$anuncios->render()}}
-    </div>
-
 </div>
 
 @endsection

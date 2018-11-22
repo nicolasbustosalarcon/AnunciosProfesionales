@@ -55,7 +55,7 @@ class HomeController extends Controller
             ->orwhere('a.estado','=','2')
             ->where('a.descripcion','LIKE','%'.$query.'%')
             ->orderBy('a.idanuncio','asc')//Se ordenan por el id del anuncio
-            ->paginate(1);
+            ->paginate(3);
 
 
             return view('almacen.secretaria.index',["anuncios"=>$anuncios,"searchText"=>$query,"categorias"=>$categorias,"regiones"=>$regiones]);//se retorna la vista de la secretaria y se envian los parametros necesarios para mostrar la vista

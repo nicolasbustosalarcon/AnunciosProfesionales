@@ -44,7 +44,7 @@ class MostrarAnuncioController extends Controller
             ->orwhere('a.estado','=','2')
             ->where('a.descripcion','LIKE','%'.$query.'%')
             ->orderBy('a.idanuncio','asc')
-            ->paginate(1);
+            ->paginate(3);
             
             return view('almacen.secretaria_anuncio.secretaria_anuncio',["anuncios"=>$anuncios,"searchText"=>$query,"categorias"=>$categorias,"regiones"=>$regiones]);
         }

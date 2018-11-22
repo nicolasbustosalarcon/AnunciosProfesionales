@@ -1,0 +1,29 @@
+body {
+  margin: 15px;
+}
+
+div.search span {
+  display: block;
+}
+
+div.search input[type="text"] {
+  margin-top: 4px;
+}
+
+div.panel {
+  margin-bottom: 15px;
+}
+
+div.panel .panel-body p:last-child {
+  margin-bottom: 0;
+}
+
+span.markYellow {
+  background: yellow;
+  color: black;
+}
+
+span.markBlue {
+  background: blue;
+  color: white;
+}
