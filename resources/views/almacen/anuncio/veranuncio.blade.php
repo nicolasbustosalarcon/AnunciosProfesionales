@@ -100,7 +100,7 @@
             </div>
           </div>
       <div class="clearfix"></div>
-          <a href="#!" class="btn btn-success btn-block">ENVIAR MENSAJE</a>
+          <a href="{{URL::action('Usuario\MensajeController@show',[$anuncio->idanuncio])}}"" class="btn btn-success btn-block">ENVIAR MENSAJE</a>
           <p class="lead text-center" style="margin: 7px 0; background-color: #F5F5F5;">
             <i class="fa fa-map-marker lead text-center">@foreach ($nombre_region as $nombre)
             @if (strcmp($anuncio->region, $nombre->idregion) === 0)
