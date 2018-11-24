@@ -32,7 +32,14 @@
 	                </input>
 	            </div>
 	            <div class="form-group">
-            		<button class="btn btn-primary" type="submit">Guardar</button>
+			              @if ($anuncio->idusuario == Auth::user()->id )<!--se encuentra el usuario que publico el anuncio-->
+			               <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+						       <p class="alert alert-warning alert-dismissable">
+						        <button typo="button" class="close" data-dismiss="alert">&times;</button>No puede enviarse mensajes a si mismo.</p>
+						    </div>
+						  @else
+			              <button class="btn btn-primary" type="submit">Enviar Mensaje</button>
+			              @endif
           
 			{!!Form::close()!!}	
 		<a href="{{url('../almacen/anuncio')}}" class="btn btn-danger" type="button">Cancelar</a>	

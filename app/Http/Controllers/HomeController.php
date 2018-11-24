@@ -71,7 +71,7 @@ class HomeController extends Controller
             ->join('tipo_anuncios as ta','a.tipo_anuncio','=','ta.idtipo_anuncios')
             ->join('categoria as c','a.idcategoria','=','c.idcategoria')
             ->join('region as r','a.region','=','r.idregion')
-            ->select('a.idanuncio','a.titulo','r.nombre_region as region','a.estado','c.nombre as categoria','u.name as usuario','a.descripcion','a.imagen','a.precio','ta.nombre_tipo as tipo_anuncio')
+            ->select('a.idanuncio','a.titulo','r.nombre_region as region','a.estado','c.nombre as categoria','u.name as usuario','a.descripcion','a.imagen','a.precio','ta.nombre_tipo as tipo_anuncio', 'a.fecha_caducidad', 'ta.precio_anuncio')
             ->where('a.estado','=','1')
             ->where('a.titulo','LIKE','%'.$query.'%')
             ->orwhere('a.estado','=','1')//Se muestran los anuncios que están publicados
@@ -80,7 +80,8 @@ class HomeController extends Controller
             ->where('c.nombre','LIKE','%'.$query.'%')
             ->orwhere('a.estado','=','1')
             ->where('a.descripcion','LIKE','%'.$query.'%')
-            ->orderBy('a.idanuncio','asc')
+            ->orderBy('ta.precio_anuncio','desc')
+            ->orderBy('a.fecha_caducidad','desc')
             ->paginate(6);
             return view('almacen.anuncio.index',["anuncios"=>$anuncios,"nombre_red"=>$nombre_red,"searchText"=>$query,"redes_sociales"=>$redes_sociales]);
         }

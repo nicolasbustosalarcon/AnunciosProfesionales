@@ -42,4 +42,6 @@ class MensajeController extends Controller
     	return Redirect::to('almacen/anuncio');
 
     }
+
+
 }
