@@ -4,9 +4,23 @@
 
 <div class="row">
     <div class="col-lg-12">
-    <h2 style="text-align:center;">Anuncios</h2>
+     <h2 style="text-align:center;">Anuncios </h2>
     </div>
 </div>
+
+ 
+<?php
+$censura = json_encode($palabras_censura);
+?>
+<script type="text/javascript">
+    var censura = eval(<?php echo $censura; ?>);
+    //for (i = 0; i<= censura.length;i++) {
+      //  document.write("Palabra:" +censura[i].palabra_censurada+ "<br/>");
+    //}
+
+</script>
+ <!-- ***********REPORTE GENERAL DE CATEGORIAS****************  <input type="text" name="censurar"  value="{{$palabras_censura[0]->palabra_censurada}}"> -->
+
 
 <div class="panel panel-default">
   <div class="panel-heading">Palabra a censurar</div>

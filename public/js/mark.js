@@ -35,6 +35,21 @@ $(function() {
 
 $(function() {
 
+  $("input[name='censurar']").on("keyup", function() {
+    var keyword = $(this).val(),
+      options = {
+        "element": "span",
+        "className": "markYellow",
+        "separateWordSearch": true
+      },
+      $ctx = $(".context table tr td:nth-child(7)");
+    $ctx.unmark({
+      done: function() {
+        $ctx.mark(keyword, options);
+      }
+    });
+
+});
   $("input[name='item']").on("keyup", function() {
     var keyword = $(this).val(),
       options = {
@@ -49,6 +64,7 @@ $(function() {
       }
     });
   });
+
   $("input[name='item']").on("keyup", function() {
     var keyword = $(this).val(),
       options = {

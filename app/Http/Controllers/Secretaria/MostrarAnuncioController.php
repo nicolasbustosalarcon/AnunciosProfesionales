@@ -4,6 +4,8 @@ namespace AnunciosProfesionales\Http\Controllers\Secretaria;
 
 use Illuminate\Http\Request;
 
+use AnunciosProfesionales\Censura;
+use AnunciosProfesionales\Http\Requests\CensuraFormRequest;
 use AnunciosProfesionales\Http\Requests;
 use AnunciosProfesionales\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
@@ -26,6 +28,7 @@ class MostrarAnuncioController extends Controller
     {
         if ($request)
         {
+            $palabras_censura = DB::table('censura')->where('estado','=','1')->get();
             $regiones=DB::table('region')->where('estado','=','1')->get();
             $query=trim($request->get('searchText'));//Se obtienen la cadena para la consulta.
             $categorias=DB::table('categoria')->where('condicion','=','1')->get();//Esta variable es necesaria cuando la secretaria seleccionara una categoría para generar el informe.
@@ -45,8 +48,9 @@ class MostrarAnuncioController extends Controller
             ->where('a.descripcion','LIKE','%'.$query.'%')
             ->orderBy('a.idanuncio','asc')
             ->paginate(3);
+
             
-            return view('almacen.secretaria_anuncio.secretaria_anuncio',["anuncios"=>$anuncios,"searchText"=>$query,"categorias"=>$categorias,"regiones"=>$regiones]);
+            return view('almacen.secretaria_anuncio.secretaria_anuncio',["palabras_censura" =>$palabras_censura,"anuncios"=>$anuncios,"searchText"=>$query,"categorias"=>$categorias,"regiones"=>$regiones]);
         }
     }
     /*public function create()
