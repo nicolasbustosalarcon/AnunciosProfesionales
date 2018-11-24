@@ -120,6 +120,17 @@
                
               </ul>
             </li>
+             <li class="treeview">
+              <a>
+                <i class="logo"><b>4.</b></i>
+                <span>Censura</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{url('almacen/censura')}}"><i class="fa fa-circle-o"></i>Agregar Palabra para censura</a></li>
+               
+              </ul>
+            </li>
          
                         
           </ul>

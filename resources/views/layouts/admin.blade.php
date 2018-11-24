@@ -141,7 +141,7 @@
                
               </ul>
             </li>
-            <li class="treeview">
+            <!--<li class="treeview">
               <a>
                 <i class="logo"><b>6.</b></i>
                 <span>Censura</span>
@@ -151,12 +151,12 @@
                 <li><a href="{{url('almacen/censura')}}"><i class="fa fa-circle-o"></i>Agregar Palabra para censura</a></li>
                
               </ul>
-            </li>
+            </li> -->
 
 
             <li class="treeview">
               <a>
-                <i class="logo"><b>7.</b></i>
+                <i class="logo"><b>6.</b></i>
                 <span>Lista de Usuarios</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
@@ -167,7 +167,7 @@
             </li>
             <li class="treeview">
               <a>
-                <i class="logo"><b>8.</b></i>
+                <i class="logo"><b>7.</b></i>
                 <span>Perfil</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>

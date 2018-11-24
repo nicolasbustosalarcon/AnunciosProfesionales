@@ -11,6 +11,7 @@
  
 <?php
 $censura = json_encode($palabras_censura);
+$contador = 0;
 ?>
 <script type="text/javascript">
     var censura = eval(<?php echo $censura; ?>);
@@ -53,13 +54,45 @@ $censura = json_encode($palabras_censura);
                 </thead>
                @foreach ($anuncios as $anun)
                 <tr>
+                    <?php
+                    $contador = 0;
+                    ?>
                     <td>{{ $anun->idanuncio}}</td>
+                    @foreach ($palabras_censura as $ps)
+                    <?php
+                    $posicion_coincidencia = stripos($anun->titulo, $ps->palabra_censurada);
+                    ?>
+                    @if($posicion_coincidencia == 'false')
+                    <td class="danger">{{ $anun->titulo}}</td>
+                    <?php
+                    $contador = 1;
+                    ?>
+                    @endif
+                    @endforeach
+                    @if($contador == 0)
                     <td>{{ $anun->titulo}}</td>
+                    @endif
                     <td>{{ $anun->region}}</td>
                     <td>{{ $anun->estado}}</td>
                     <td>{{ $anun->usuario}}</td>
                     <td>{{ $anun->categoria}}</td>
+                    <?php
+                    $contador = 0;
+                    ?>
+                    @foreach ($palabras_censura as $ps)
+                    <?php
+                    $posicion_coincidencia = stripos($anun->descripcion, $ps->palabra_censurada);
+                    ?>
+                    @if($posicion_coincidencia == 'false')
+                    <td class = "danger"> {{ $anun->descripcion}}</td>
+                    <?php
+                    $contador = 1;
+                    ?>
+                    @endif
+                    @endforeach
+                    @if($contador == 0)
                     <td>{{ $anun->descripcion}}</td>
+                    @endif
                     <td>
                         <img src="{{asset('imagenes/anuncios/'.$anun->imagen)}}" alt="{ $anun->titulo}" height="100px" width="100px" class="img-thumbnail"> 
                     </td>
@@ -71,7 +104,6 @@ $censura = json_encode($palabras_censura);
                     <td>
                         <a href="{{URL::action('Secretaria\AnuncioController2@edit',$anun->idanuncio)}}"><button class="btn btn-danger">Rechazar Anuncio</button></a>
                     </td>
-                    
                 </tr>
                 @include('almacen.secretaria.modal')
 

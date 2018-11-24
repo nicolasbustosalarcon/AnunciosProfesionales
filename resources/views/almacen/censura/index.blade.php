@@ -1,4 +1,4 @@
-@extends ('layouts.admin')
+@extends ('layouts.secretaria')
 @section ('contenido')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -28,7 +28,7 @@
 				@include('almacen.censura.modal')
 				@endforeach
 			</table>
-		<h3><a href="../almacen/admin"><button class='btn btn-danger'>Volver</button></a></h3>
+		<h3><a href="../almacen/secretaria"><button class='btn btn-danger'>Volver</button></a></h3>
 		</div>
 		{{$censura->render()}}
 	</div>

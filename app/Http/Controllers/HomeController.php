@@ -38,6 +38,7 @@ class HomeController extends Controller
         $user = Auth::User();
         if ($user->tipo_usuario == '1')//Vista de secretaria
         {
+            $palabras_censura = DB::table('censura')->where('estado','=','1')->get();
             $regiones=DB::table('region')->where('estado','=','1')->get();
             $query=trim($request->get('searchText'));
             $categorias=DB::table('categoria')->where('condicion','=','1')->get();//Se seleccionan las categorias que están activas
@@ -58,7 +59,7 @@ class HomeController extends Controller
             ->paginate(3);
 
 
-            return view('almacen.secretaria.index',["anuncios"=>$anuncios,"searchText"=>$query,"categorias"=>$categorias,"regiones"=>$regiones]);//se retorna la vista de la secretaria y se envian los parametros necesarios para mostrar la vista
+            return view('almacen.secretaria.index',["palabras_censura"=>$palabras_censura,"anuncios"=>$anuncios,"searchText"=>$query,"categorias"=>$categorias,"regiones"=>$regiones]);//se retorna la vista de la secretaria y se envian los parametros necesarios para mostrar la vista
         }
         if ($user->tipo_usuario == '0')//Vista de usuario normal
         {
