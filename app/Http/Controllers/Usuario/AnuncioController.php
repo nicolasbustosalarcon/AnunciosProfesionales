@@ -101,7 +101,7 @@ class AnuncioController extends Controller
         	$file->move(public_path().'/imagenes/anuncios/',$file->getClientOriginalName());
         	$anuncio->imagen=$file->getClientOriginalName();
         }
-        if(Input::hasfile('imagen3')){
+        if(Input::hasfile('imagen2')){
             $file=Input::file('imagen2');
             $file->move(public_path().'/imagenes/anuncios/',$file->getClientOriginalName());
             $anuncio->imagen2=$file->getClientOriginalName();

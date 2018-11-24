@@ -22,26 +22,33 @@
                         <!-- Carousel indicators -->
                         <ol class="carousel-indicators">
                             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <!--
                             <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li> -->
                         </ol>   
                         <!-- Wrapper for carousel items -->
                         <div class="carousel-inner">
                             <div class="item active">
-                               @if (($anuncio->imagen)!="")
-                                <img src="{{asset('imagenes/anuncios/'.$anuncio->imagen)}}" alt="First Slide">
+                               @if ($anuncio->imagen != '')
+                               <figure class="full-width post-img">
+                                <img src="{{asset('imagenes/anuncios/'.$anuncio->imagen)}}" alt="First Slide" height="280x" width="360px" class="img-rounded">
+                              </figure>
                                 @endif
                             </div>
+                             @if ($anuncio->imagen2 != '')
                             <div class="item">
-                              @if (($anuncio->imagen2)!="")
-                                <img src="{{asset('imagenes/anuncios/'.$anuncio->imagen2)}}" alt="Second Slide">
-                                @endif
+                              <figure class="full-width post-img">
+                              <img src="{{asset('imagenes/anuncios/'.$anuncio->imagen2)}}" alt="Second Slide" height="280x" width="360px" class="img-rounded">
+                            </figure>
                             </div>
+                             @endif
+                             @if ($anuncio->imagen3 != '')
                             <div class="item">
-                              @if (($anuncio->imagen3)!="")
-                                <img src="{{asset('imagenes/anuncios/'.$anuncio->imagen3)}}" alt="Third Slide">
-                                @endif
+                              <figure class="full-width post-img">
+                              <img src="{{asset('imagenes/anuncios/'.$anuncio->imagen3)}}" alt="Third Slide" height="280x" width="360px" class="img-rounded">
+                            </figure>
                             </div>
+                            @endif
                         </div>
                         <!-- Carousel controls -->
                         <a class="carousel-control left" href="#myCarousel" data-slide="prev">
