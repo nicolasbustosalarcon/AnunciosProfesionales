@@ -59,14 +59,16 @@ $contador = 0;
                     ?>
                     <td>{{ $anun->idanuncio}}</td>
                     @foreach ($palabras_censura as $ps)
+                    @if($contador == 0)
                     <?php
                     $posicion_coincidencia = stripos($anun->titulo, $ps->palabra_censurada);
                     ?>
-                    @if($posicion_coincidencia == 'false')
-                    <td class="danger">{{ $anun->titulo}}</td>
+                    @if($posicion_coincidencia !== false)
+                    <td class="danger">{{ $anun->titulo}} </td>
                     <?php
                     $contador = 1;
                     ?>
+                    @endif
                     @endif
                     @endforeach
                     @if($contador == 0)
@@ -80,14 +82,16 @@ $contador = 0;
                     $contador = 0;
                     ?>
                     @foreach ($palabras_censura as $ps)
+                    @if($contador == 0)
                     <?php
                     $posicion_coincidencia = stripos($anun->descripcion, $ps->palabra_censurada);
                     ?>
-                    @if($posicion_coincidencia == 'false')
-                    <td class = "danger"> {{ $anun->descripcion}}</td>
+                    @if($posicion_coincidencia !== false)
+                    <td class = "danger"> {{ $anun->descripcion}} </td>
                     <?php
                     $contador = 1;
                     ?>
+                    @endif
                     @endif
                     @endforeach
                     @if($contador == 0)

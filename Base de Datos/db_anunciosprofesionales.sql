@@ -405,10 +405,7 @@ ALTER TABLE `anuncio`
 -- Indices de la tabla `anuncio_redsocial`
 --
 ALTER TABLE `anuncio_redsocial`
-  ADD PRIMARY KEY (`id_anuncio_red`),
-  ADD KEY `fk_red_idx` (`id_redsocial`),
-  ADD KEY `fk_anuncio` (`id_anuncio`);
-
+  ADD PRIMARY KEY (`id_anuncio_red`);
 --
 -- Indices de la tabla `categoria`
 --
@@ -500,6 +497,72 @@ ALTER TABLE `anuncio`
 ALTER TABLE `mensaje`
   MODIFY `idmensaje` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+--
+-- AUTO_INCREMENT de la tabla `anuncio`
+--
+ALTER TABLE `tipo_anuncios`
+  MODIFY `idtipo_anuncios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT de la tabla `anuncio_redsocial`
+--
+ALTER TABLE `anuncio_redsocial`
+  MODIFY `id_anuncio_red` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT de la tabla `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `censura`
+--
+ALTER TABLE `censura`
+  MODIFY `idpalabra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `diccionario_datos`
+--
+ALTER TABLE `diccionario_datos`
+  MODIFY `id_palabra` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `palabras_buscadas`
+--
+ALTER TABLE `palabras_buscadas`
+  MODIFY `idpalabra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `red_social`
+--
+ALTER TABLE `red_social`
+  MODIFY `idred_social` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `region`
+--
+ALTER TABLE `region`
+  MODIFY `idregion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de la tabla `tabla_like`
+--
+ALTER TABLE `tabla_like`
+  MODIFY `idlike` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
