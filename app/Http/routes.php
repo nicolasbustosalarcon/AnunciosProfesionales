@@ -70,3 +70,8 @@ Route::get('/home', 'HomeController@index');
 Route::resource('almacen/graficos/categoriasgeneral', 'Graficos\CategoriaGeneralController');
 Route::resource('almacen/graficos/informeusuarios', 'Graficos\ReporteUsuariosController');
 
+
+
+Route::resource('almacen/mensaje','Usuario\MensajeController');
+Route::post("almacen/mensaje/{id}","Usuario\MensajeController@show");
+

@@ -35,7 +35,7 @@ class AnuncioController extends Controller
             ->join('tipo_anuncios as ta','a.tipo_anuncio','=','ta.idtipo_anuncios')
             ->join('categoria as c','a.idcategoria','=','c.idcategoria')
             ->join('region as r','a.region','=','r.idregion')
-            ->select('a.idanuncio','a.titulo','r.nombre_region as region','a.estado','c.nombre as categoria','u.name as usuario','a.descripcion','a.imagen','a.precio','ta.nombre_tipo as tipo_anuncio')
+            ->select('a.idanuncio','a.titulo','r.nombre_region as region','a.estado','c.nombre as categoria','u.name as usuario','a.descripcion','a.imagen','a.precio','ta.nombre_tipo as tipo_anuncio', 'a.fecha_caducidad', 'ta.precio_anuncio')
             ->where('a.estado','=','1')//anuncios publicados
             ->where('a.titulo','LIKE','%'.$query.'%') /*$query la cadena que se ingresa*/
             ->orwhere('a.estado','=','1')

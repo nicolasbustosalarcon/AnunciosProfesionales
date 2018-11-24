@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-11-2018 a las 22:18:30
+-- Tiempo de generación: 23-11-2018 a las 22:00:24
 -- Versión del servidor: 10.1.35-MariaDB
 -- Versión de PHP: 7.2.9
 
@@ -219,7 +219,8 @@ CREATE TABLE `palabras_buscadas` (
 INSERT INTO `palabras_buscadas` (`idpalabra`, `palabra`, `cantidad`) VALUES
 (1, 'Venta', 1),
 (4, 'iPhone', 1),
-(5, 'Zapatos', 2);
+(5, 'Zapatos', 2),
+(6, 'A', 1);
 
 -- --------------------------------------------------------
 
@@ -357,8 +358,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `direccion_region`, `direccion_cuidad`, `email`, `password`, `telefono`, `edad`, `tipo_usuario`, `remember_token`, `created_at`, `updated_at`, `estado`) VALUES
-(1, 'Nicolás Bustos Alarcon', 'VII Maule', 'Linares', 'nicolasbustos1996@gmail.com', '$2y$10$Kpw7YlitpQTBIjjdt8jOf.2wUU684ojyxd9gSKQOydyTNQFQeDRfm', '77404443', 21, 0, 'x0ZkApsE1ZoSNwj3QHdSa1mNWBmHYYipcCo6Y2URiPem11hNcGU2teYr0vkE', '2018-07-02 21:19:11', '2018-11-22 19:16:25', 0),
-(2, 'Secretaria1', 'VII Maule', 'Curico', 'secretaria1@gmail.com', '$2y$10$SPZ2yMeAjKGnT8CwtUebOO.7sWFvlRgdbLsSU/ngjxVN0mPGvL6Z2', '77889966', 22, 1, 'heFUVHsqYPC9hlW4cg4peK7OJ0SRuZM172Wvl4KO3yeK3Kea2rureK6HJMRH', '2018-07-02 21:19:41', '2018-11-22 19:02:53', 0),
+(1, 'Nicolás Bustos Alarcon', 'VII Maule', 'Linares', 'nicolasbustos1996@gmail.com', '$2y$10$Kpw7YlitpQTBIjjdt8jOf.2wUU684ojyxd9gSKQOydyTNQFQeDRfm', '77404443', 21, 0, 'YDDjFhnjvkrmaXjmNuFuWg8PAH44aBlWZT8Wt46b744w2CDeoykcPEWiTJYm', '2018-07-02 21:19:11', '2018-11-23 17:33:22', 0),
+(2, 'Secretaria1', 'VII Maule', 'Curico', 'secretaria1@gmail.com', '$2y$10$SPZ2yMeAjKGnT8CwtUebOO.7sWFvlRgdbLsSU/ngjxVN0mPGvL6Z2', '77889966', 22, 1, 'jAtBM6uq0mVtJay1hovO9ywpqkRbzYqXs4r9N12tn1r8njDxXnxSBJ0pyl2W', '2018-07-02 21:19:41', '2018-11-22 19:25:21', 0),
 (3, 'admin', 'VII Maule', 'Linares', 'admin@gmail.com', '$2y$10$axb8xSJNrDyltKwVUHKJWemHgN4ZxeDGIafuQ.VRfQuPFs3vdnkQW', '78945612', 21, 2, 'KxpTNKGa9WUJS0fdGYOlefnn2ZpbwgNTyVDNUPoIWCEKKD9zHX0qDulCd3Dc', '2018-07-02 21:20:10', '2018-11-22 19:03:01', 0),
 (4, 'Juan Aravena', 'VII Maule', 'Talca', 'juanion_chile@gmail.com', '$2y$10$dGUvbRJdIItXStx4qz4F0OxFY.ESISdPOQi4j5Ilg0Sr6n8/kPH06', '11223344', 22, 0, 'TCWithkzlXqPs80ktFa2xDDHVQSpQpzLeHDvWOlQ76lntzDZ7sV7zLfVcfXX', '2018-10-25 17:02:01', '2018-10-28 19:55:37', 0),
 (5, 'Luis Fuenzalida', 'VII Maule', 'Curicó', 'luisfuenzalidalizana@gmail.com', '$2y$10$Yvd0MNlLlBqdKT6YIyARLu6eWLlY8JQk1H0BbHB5PT0aoiENOAlqq', '88776655', 23, 0, 'BpctAcfjUDrPUEqUUmjZsQG9sQqh1d1IINGKxRisnPTPyJZIyCt26Gu47JDF', '2018-10-25 17:02:41', '2018-10-25 17:33:23', 0),
@@ -427,6 +428,12 @@ ALTER TABLE `diccionario_datos`
   ADD PRIMARY KEY (`id_palabra`);
 
 --
+-- Indices de la tabla `mensaje`
+--
+ALTER TABLE `mensaje`
+  ADD PRIMARY KEY (`idmensaje`);
+
+--
 -- Indices de la tabla `palabras_buscadas`
 --
 ALTER TABLE `palabras_buscadas`
@@ -488,88 +495,10 @@ ALTER TABLE `anuncio`
   MODIFY `idanuncio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT de la tabla `anuncio_redsocial`
+-- AUTO_INCREMENT de la tabla `mensaje`
 --
-ALTER TABLE `anuncio_redsocial`
-  MODIFY `id_anuncio_red` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
---
--- AUTO_INCREMENT de la tabla `categoria`
---
-ALTER TABLE `categoria`
-  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `censura`
---
-ALTER TABLE `censura`
-  MODIFY `idpalabra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT de la tabla `diccionario_datos`
---
-ALTER TABLE `diccionario_datos`
-  MODIFY `id_palabra` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `palabras_buscadas`
---
-ALTER TABLE `palabras_buscadas`
-  MODIFY `idpalabra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de la tabla `red_social`
---
-ALTER TABLE `red_social`
-  MODIFY `idred_social` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT de la tabla `region`
---
-ALTER TABLE `region`
-  MODIFY `idregion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT de la tabla `tabla_like`
---
-ALTER TABLE `tabla_like`
-  MODIFY `idlike` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `tipo_anuncios`
---
-ALTER TABLE `tipo_anuncios`
-  MODIFY `idtipo_anuncios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de la tabla `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT de la tabla `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `anuncio`
---
-ALTER TABLE `anuncio`
-  ADD CONSTRAINT `fk_anuncio_categoria` FOREIGN KEY (`idcategoria`) REFERENCES `categoria` (`idcategoria`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_anuncio_tipo` FOREIGN KEY (`tipo_anuncio`) REFERENCES `tipo_anuncios` (`idtipo_anuncios`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `anuncio_redsocial`
---
-ALTER TABLE `anuncio_redsocial`
-  ADD CONSTRAINT `fk_anuncio` FOREIGN KEY (`id_anuncio`) REFERENCES `anuncio` (`idanuncio`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_red` FOREIGN KEY (`id_redsocial`) REFERENCES `red_social` (`idred_social`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `mensaje`
+  MODIFY `idmensaje` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
