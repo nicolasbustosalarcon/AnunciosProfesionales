@@ -28,11 +28,12 @@
 								               	@if(Auth::user()->id == $men->id_usuario_recibe)
 												<tr>
 													<td>{{ $anun->titulo}}</td>
-													<td>{{ $use->name}}</td>
-													<td>{{ $men->mensaje}}</td>
 													<td>
 														<img src="{{asset('imagenes/anuncios/'.$anun->imagen)}}" alt="{$anun->titulo}" height="100px" width="100px" class="img-thumbnail"> 
 													</td>
+													<td>{{ $use->name}}</td>
+													<td>{{ $men->mensaje}}</td>
+													
 													<td><a href="{{URL::action('Usuario\VerMensajesController@edit',$men->idmensaje)}}"><button class="btn btn-info">Marcar como leído</button></a>
                     								<a href="{{URL::action('Usuario\VerMensajesController@show',[$men->idmensaje,$men->id_anuncio])}}"><button class="btn btn-warning">Responder mensaje</button></a>
                     								</td>
