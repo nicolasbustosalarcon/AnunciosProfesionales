@@ -74,5 +74,6 @@ Route::resource('almacen/graficos/informeusuarios', 'Graficos\ReporteUsuariosCon
 
 Route::resource('almacen/mensaje','Usuario\MensajeController');
 Route::post("almacen/mensaje/{id}","Usuario\MensajeController@show");
+Route::post("almacen/vermensajes/{id}","Usuario\VerMensajeController@show");
 
 Route::resource('almacen/vermensajes','Usuario\VerMensajesController');

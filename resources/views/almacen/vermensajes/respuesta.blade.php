@@ -2,26 +2,28 @@
 @section ('contenido')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Nuevo Mensaje</h3>
-	</div>
-</div>
-{!!Form::open(array('url'=>'almacen/mensaje','method'=>'POST','autocomplete'=>'off'))!!}
+		<h3>Responder Mensaje </h3>
+		{!!Form::open(array('url'=>'almacen/vermensajes','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
-    <div class="row">
+            <div class="row">
     	<div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
     		<div class="form-group">
             	<label for="id_anuncio">Anuncio</label>
  					<select name="id_anuncio" class="form-control">
-				              <option value="{{$anuncio->idanuncio}}">{{$anuncio->titulo}}</option>
+ 						 	@foreach ($anuncios as $anun)<!--se recorre la tabla anuncios-->
+			              		@if (strcmp($mensaje->id_anuncio, $anun->idanuncio) === 0)<!--se encuentra el mensaje con el anuncio-->
+			              			<option value="{{$anun->idanuncio}}">{{ $anun->titulo}}</option>
+			              		@endif
+			            	@endforeach 				          
     				</select>
     			<label for="id_usuario_envia">De</label>
  					<select name="id_usuario_envia" class="form-control">
 				              <option value="{{Auth::user()->id}}">{{ Auth::user()->name}}</option>
     				</select>
-    			<label for="id_usuario_recibe">Para</label>
+    			<label for="id_usuario_envia">Para</label>
  					<select name="id_usuario_recibe" class="form-control">
- 						@foreach ($usuarios as $users)<!--se recorre la tabla de usuarios y anuncios-->
-			              @if (strcmp($anuncio->idusuario, $users->id) === 0)<!--se encuentra el usuario que publico el anuncio-->
+ 						@foreach ($usuarios as $users)
+			              @if (strcmp($mensaje->id_usuario_envia, $users->id) === 0)
 			              <option value="{{$users->id}}">{{ $users->name}}</option>
 			              @endif
 			            @endforeach 
@@ -32,17 +34,9 @@
 	                </input>
 	            </div>
 	            <div class="form-group">
-			              @if ($anuncio->idusuario == Auth::user()->id )<!--se encuentra el usuario que publico el anuncio-->
-			               <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
-						       <p class="alert alert-warning alert-dismissable">
-						        <button typo="button" class="close" data-dismiss="alert">&times;</button>No puede enviarse mensajes a si mismo.</p>
-						    </div>
-						  @else
-			              <button class="btn btn-primary" type="submit">Enviar Mensaje</button>
-			              @endif
-          
+					<button class="btn btn-primary" type="submit">Enviar Mensaje</button>
 			{!!Form::close()!!}	
-		<a href="{{url('../almacen/anuncio')}}" class="btn btn-danger" type="button">Cancelar</a>	
+			<a href="{{url('almacen/anuncio')}}" class="btn btn-danger" type="button">Cancelar</a>	
               		</div>	
             </div>
     	</div>		
