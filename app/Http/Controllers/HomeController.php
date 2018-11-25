@@ -12,7 +12,7 @@ use AnunciosProfesionales\Anuncio;
 use AnunciosProfesionales\Palabras;
 use DB;
 use DateTime;
-
+use Carbon\Carbon;
 
 use Auth;
 
@@ -63,9 +63,22 @@ class HomeController extends Controller
         }
         if ($user->tipo_usuario == '0')//Vista de usuario normal
         {
+            $fechaHoy = date('Y-m-d');
+            $fechaHoy2 = strtotime("$fechaHoy");
             $query=trim($request->get('searchText'));
             $nombre_red=DB::table('red_social')->get();
             $redes_sociales=DB::table('anuncio_redsocial')->get();
+            $anuncios_publicar = DB::table('anuncio')->get();
+            foreach ($anuncios_publicar as $anun) {
+                if($anun->estado == 1){
+                    $fecha_fin = strtotime("$anun->fecha_caducidad");
+                    if ($fecha_fin < $fechaHoy2) {
+                        $anuncio_actualizar = Anuncio::findOrFail($anun->idanuncio);
+                        $anuncio_actualizar->estado = '4';
+                        $anuncio_actualizar->update();
+                    }
+                }
+            }
             $anuncios=DB::table('anuncio as a')
             ->join('users as u','a.idusuario','=','u.id')
             ->join('tipo_anuncios as ta','a.tipo_anuncio','=','ta.idtipo_anuncios')

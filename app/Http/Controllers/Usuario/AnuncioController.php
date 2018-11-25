@@ -16,6 +16,8 @@ use AnunciosProfesionales\RedAnuncio;
 use AnunciosProfesionales\TablaLike;
 use DB;
 use Auth;
+use DateTime;
+use Carbon\Carbon;
 
 class AnuncioController extends Controller
 {
@@ -27,9 +29,22 @@ class AnuncioController extends Controller
     {
         if ($request)//Vista Usuario
         {
+            $fechaHoy = date('Y-m-d');
+            $fechaHoy2 = strtotime("$fechaHoy");
             $nombre_red=DB::table('red_social')->get();
             $query=trim($request->get('searchText'));//Se obtiene la palabra que se buscará
             $redes_sociales=DB::table('anuncio_redsocial')->get();
+            $anuncios_publicar = DB::table('anuncio')->get();
+            foreach ($anuncios_publicar as $anun) {
+                if($anun->estado == 1){
+                    $fecha_fin = strtotime("$anun->fecha_caducidad");
+                    if ($fecha_fin < $fechaHoy2) {
+                        $anuncio_actualizar = Anuncio::findOrFail($anun->idanuncio);
+                        $anuncio_actualizar->estado = '4';
+                        $anuncio_actualizar->update();
+                    }
+                }
+            }
             $anuncios=DB::table('anuncio as a')//Se obtienen los anuncios para la vista
             ->join('users as u','a.idusuario','=','u.id')//Se sincroniza cada anuncio con su clave foranea
             ->join('tipo_anuncios as ta','a.tipo_anuncio','=','ta.idtipo_anuncios')
