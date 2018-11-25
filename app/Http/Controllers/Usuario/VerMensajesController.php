@@ -55,5 +55,13 @@ class VerMensajesController extends Controller
     	return Redirect::to('almacen/anuncio');
 
     }
-    
+    public function destroy($id)
+    {
+        $mensaje=Mensaje::findOrFail($id);
+        $mensaje->estado = '0';
+        $mensaje->update();
+        return Redirect::to('almacen/vermensajes');
+
+    }
+        
 }

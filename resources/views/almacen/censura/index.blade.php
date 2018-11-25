@@ -28,7 +28,7 @@
 				@include('almacen.censura.modal')
 				@endforeach
 			</table>
-		<h3><a href="../almacen/secretaria"><button class='btn btn-danger'>Volver</button></a></h3>
+		<h3><a href="../../almacen/secretaria"><button class='btn btn-danger'>Volver</button></a></h3>
 		</div>
 		{{$censura->render()}}
 	</div>
