@@ -25,7 +25,6 @@ class AnuncioFormRequest extends Request
     {
         return [
             'titulo'=>'required|max:45',
-            'idcategoria'=>'required',
             'descripcion'=>'required|max:100',
             'precio'=>'required|numeric',
             'redsocial1'=>'max:100',

@@ -92,19 +92,8 @@ class AnuncioController2 extends Controller
     {
         $anuncio=Anuncio::findOrFail($id);
         $anuncio->titulo=$request->get('titulo');
-        $anuncio->region=$request->get('region');
-        $anuncio->idcategoria=$request->get('idcategoria');
         $anuncio->descripcion=$request->get('descripcion');
-        $anuncio->idusuario=$request->get('idusuario');
-
-        if(Input::hasfile('imagen')){
-            $file=Input::file('imagen');
-            $file->move(public_path().'/imagenes/anuncios',$file->getClientOriginalName());
-            $anuncio->imagen=$file->getClientOriginalName();
-
-        }
         $anuncio->precio=$request->get('precio');
-        $anuncio->tipo_anuncio=$request->get('tipo_anuncio');
         $anuncio->estado='0';//El anuncio pasa a un estado de eliminación
         $anuncio->comentario_secretaria=$request->get('comentario');
         $anuncio->id_secretaria=Auth::user()->id;
