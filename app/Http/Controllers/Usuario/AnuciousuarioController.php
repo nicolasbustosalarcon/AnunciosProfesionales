@@ -50,7 +50,8 @@ class AnuciousuarioController extends Controller
             ->where('a.estado','=','2')
             ->orderBy('a.idanuncio','asc')
             ->paginate(3);
+            $secretarias = DB::table('users')->get();
 
-            return view('almacen.anuncio.anunciospersonales',["anuncios1"=>$anuncios1,"anuncios2"=>$anuncios2,"anuncios3"=>$anuncios3]);
+            return view('almacen.anuncio.anunciospersonales',["secretarias"=>$secretarias,"anuncios1"=>$anuncios1,"anuncios2"=>$anuncios2,"anuncios3"=>$anuncios3]);
     }
 }

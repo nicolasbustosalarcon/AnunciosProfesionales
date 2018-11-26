@@ -15,13 +15,8 @@ $contador = 0;
 ?>
 <script type="text/javascript">
     var censura = eval(<?php echo $censura; ?>);
-    //for (i = 0; i<= censura.length;i++) {
-      //  document.write("Palabra:" +censura[i].palabra_censurada+ "<br/>");
-    //}
 
 </script>
- <!-- ***********REPORTE GENERAL DE CATEGORIAS****************  <input type="text" name="censurar"  value="{{$palabras_censura[0]->palabra_censurada}}"> -->
-
 
 <div class="panel panel-default">
   <div class="panel-heading">Palabra a censurar</div>
@@ -29,7 +24,7 @@ $contador = 0;
     <div class="search row">
       <div class="col-xs-12">
         <span>Escribir una palabra:</span>
-        <input type="text" name="item" class="form-control input-sm" placeholder="Palabra...">
+        <input type="text" name="item" class="form-control input-sm" placeholder="Palabra..."><!--Aquí se utiliza una funcion de javascript llamada mark.js que esta en public/js donde marcara con color azul cada palabra que se escriba de manera de ayudar a la secretaria con la censura de palabras -->
       </div>
     </div>
   </div>
@@ -58,7 +53,7 @@ $contador = 0;
                     $contador = 0;
                     ?>
                     <td>{{ $anun->idanuncio}}</td>
-                    @foreach ($palabras_censura as $ps)
+                    @foreach ($palabras_censura as $ps)<!--Se recorre la tabla de las palabras que se encuentran censuradas y en caso de encontrar una coincidencia el cuadro resaltará por sobre los demás -->
                     @if($contador == 0)
                     <?php
                     $posicion_coincidencia = stripos($anun->titulo, $ps->palabra_censurada);

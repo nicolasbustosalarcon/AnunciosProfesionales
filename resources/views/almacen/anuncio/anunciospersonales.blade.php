@@ -41,7 +41,12 @@
 					</td>
 					<td>{{ $anun->precio}}</td>
 					<td>{{ $anun->tipo_anuncio}}</td>
-					<td>{{ $anun->id_secretaria}}</td>
+					@foreach ($secretarias as $sec)
+					@if($sec->id == $anun->id_secretaria)
+					<?php $secretaria = $sec->name; ?>
+					@endif
+					@endforeach
+					<td>{{ $secretaria}}</td>
 					<td>
 						<a href="{{URL::action('Usuario\AnuncioController@edit',$anun->idanuncio)}}"><button class="btn btn-info">Editar</button></a>
                          <a href="" data-target="#modal-delete-{{$anun->idanuncio}}" data-toggle="modal"><button class="btn btn-danger">Eliminar</button></a>
@@ -120,7 +125,12 @@
 					</td>
 					<td>{{ $anun->precio}}</td>
 					<td>{{ $anun->tipo_anuncio}}</td>
-					<td>{{ $anun->id_secretaria}}</td>
+					@foreach ($secretarias as $sec)
+					@if($sec->id == $anun->id_secretaria)
+					<?php $secretaria = $sec->name; ?>
+					@endif
+					@endforeach
+					<td>{{ $secretaria}}</td>
 					<td>{{ $anun->comentario_secretaria}}</td>
 					<td>
 						<a href="{{URL::action('Usuario\AnuncioController@edit',$anun->idanuncio)}}"><button class="btn btn-info">Editar</button></a>

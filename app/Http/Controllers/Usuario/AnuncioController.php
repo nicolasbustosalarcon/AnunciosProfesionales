@@ -35,7 +35,7 @@ class AnuncioController extends Controller
             $query=trim($request->get('searchText'));//Se obtiene la palabra que se buscará
             $redes_sociales=DB::table('anuncio_redsocial')->get();
             $anuncios_publicar = DB::table('anuncio')->get();
-            foreach ($anuncios_publicar as $anun) {
+            foreach ($anuncios_publicar as $anun) {//Recorre los anuncios y saca del sistema a los que hayan caducado
                 if($anun->estado == 1){
                     $fecha_fin = strtotime("$anun->fecha_caducidad");
                     if ($fecha_fin < $fechaHoy2) {
@@ -62,22 +62,22 @@ class AnuncioController extends Controller
             ->paginate(6);
 
 
-            $agregar_palabra=DB::table('palabras_buscadas')->get();
+            $agregar_palabra=DB::table('palabras_buscadas')->get();//Se registrarán las palabras que busquen los usuarios
             $ciclo = '1';
             if ($query != '') {
                 $nueva_palabra=new Palabras;
                 foreach ($agregar_palabra as $agr) {
                     if($ciclo == '1'){
-                        if (strcasecmp($query, $agr->palabra) == '0') {
+                        if (strcasecmp($query, $agr->palabra) == '0') {//Se busca una coincidencia con la base de datos
                             $palabra_actualizar=Palabras::findOrFail($agr->idpalabra);
-                            $palabra_actualizar->cantidad = $palabra_actualizar->cantidad + 1;
+                            $palabra_actualizar->cantidad = $palabra_actualizar->cantidad + 1;//En caso de encontrar la palabra se aumenta el contador, se actualiza en la BD y posteriormente se cierra el ciclo
                             $palabra_actualizar->update();
                             $ciclo = '0';
                         }
                     }
                 }
 
-                if($ciclo == '1'){
+                if($ciclo == '1'){//Si el ciclo no se cerró, no se encontro coincidencia por lo que se agrega a la BD
                     $nueva_palabra->palabra = $query;
                     $nueva_palabra->cantidad = 1;
                     $nueva_palabra->save();
@@ -146,7 +146,7 @@ class AnuncioController extends Controller
 
     }
     public function show($id,$parametro)
-    {
+    {//En esta función se muestran con más detalle los anuncios y permiten dar like o deslike
         $anuncio=Anuncio::findOrFail($id);
         $usuarios=DB::table('users')->get();
         $nombre_region=DB::table("region")->get();
@@ -155,7 +155,7 @@ class AnuncioController extends Controller
         $nuevatablalike=new TablaLike;
         $datos_tabla=DB::table('tabla_like')->get();
         $ciclo='0';
-        if ($parametro == '1') {
+        if ($parametro == '1') {//Si el parametro es 1 se comprueba si el usuario ya habia dado like o deslike con anterioridad, para reemplazar lo que habia hecho anteriormente. Lo mismo sucede cuando el parametro es 2.
             foreach ($datos_tabla as $dat) {
                 if ($dat->id_anuncio == $id) {
                     if ($dat->id_usuario == Auth::user()->id) {
@@ -209,7 +209,7 @@ class AnuncioController extends Controller
             }
         }
         if ($parametro == '1'){
-            if ($ciclo == '0') {
+            if ($ciclo == '0') {//Si el usuario no habia interactuado con anterioridad con el anuncio, se registra en la BD
                 $nuevatablalike->id_anuncio = $id;
                 $nuevatablalike->id_usuario = Auth::user()->id;
                 $nuevatablalike->estado = '1';
@@ -225,7 +225,7 @@ class AnuncioController extends Controller
                 $nuevatablalike->save();
             }
         }
-        $cantidad_mg = DB::table('tabla_like as t')
+        $cantidad_mg = DB::table('tabla_like as t')//Se cuentan los like del anuncio para mostrarlo en la vista
         ->where('t.estado','=','1')
         ->where('t.id_anuncio','=',$id)
         ->select(DB::raw('count(*) as mg'))

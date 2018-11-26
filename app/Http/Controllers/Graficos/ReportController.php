@@ -14,18 +14,18 @@ use PDF;
 class ReportController extends Controller//Controller para generar el PDF
 {
 
-    public function informe_palabras_buscadas ()
+    public function informe_palabras_buscadas ()//se envia la tabla de las palabras mas buscadas para graficar sus datos en la vista informe_palabras.blade.php
     {
         $palabras = DB::table('palabras_buscadas')->get();
         return view("almacen.graficos.informe_palabras",["palabras" => $palabras]);
 
     }
 
-    public function anuncios_like()
+    public function anuncios_like()//Función que obtiene los parametros para graficar los anuncios más populares
     {
         $tabla_likes = DB::table('tabla_like')->get();
         $anuncios = DB::table('anuncio')->get();
-        $likes = array(array('titulo_anuncio','cantidad'));//Se inicia el arreglo que contendra las regiones y su cantidad respectiva ded anuncios
+        $likes = array(array('titulo_anuncio','cantidad'));//Se inicia el arreglo que contendra el titulo del anuncio y su cantidad respectiva de likes
 
 
         for ($i=0; $i < 100; $i++) { //se inicia el arreglo con datos nulos
@@ -38,7 +38,7 @@ class ReportController extends Controller//Controller para generar el PDF
 
         for ($i=0; $i < 100; $i++) { 
             foreach($anuncios as $anun){
-                if ($anun->idanuncio==$i) {//Se ingresa el nombre de la region en relación a su ID
+                if ($anun->idanuncio==$i) {//Se ingresa el titulo del anuncio en relación a su ID
                     $likes[$i]['titulo_anuncio'] = $anun->titulo;
                 }
             }
@@ -46,7 +46,7 @@ class ReportController extends Controller//Controller para generar el PDF
 
 
 
-        for ($i=0; $i < 100; $i++) {//Recorre el arreglo y va sumando cada vez que encuentra un anuncio de cierta categoria
+        for ($i=0; $i < 100; $i++) {//Recorre el arreglo y va sumando cada vez que encuentra un like de cierto anuncio
             foreach ($tabla_likes as $like) {
                 if ($like->id_anuncio == $i) {
                     if ($like->estado == 1) {
@@ -59,11 +59,11 @@ class ReportController extends Controller//Controller para generar el PDF
     }
 
 
-    public function anuncios_deslike()
+    public function anuncios_deslike()//Función que obtiene los parametros para graficar los anuncios más rechazados
     {
         $tabla_likes = DB::table('tabla_like')->get();
         $anuncios = DB::table('anuncio')->get();
-        $likes = array(array('titulo_anuncio','cantidad'));//Se inicia el arreglo que contendra las regiones y su cantidad respectiva ded anuncios
+        $likes = array(array('titulo_anuncio','cantidad'));//Se inicia el arreglo que contendra el titulo del anuncio y su cantidad respectiva de deslikes
 
 
         for ($i=0; $i < 100; $i++) { //se inicia el arreglo con datos nulos
@@ -76,7 +76,7 @@ class ReportController extends Controller//Controller para generar el PDF
 
         for ($i=0; $i < 100; $i++) { 
             foreach($anuncios as $anun){
-                if ($anun->idanuncio==$i) {//Se ingresa el nombre de la region en relación a su ID
+                if ($anun->idanuncio==$i) {//Se ingresa el titulo del anuncio en relación a su ID
                     $likes[$i]['titulo_anuncio'] = $anun->titulo;
                 }
             }
@@ -84,7 +84,7 @@ class ReportController extends Controller//Controller para generar el PDF
 
 
 
-        for ($i=0; $i < 100; $i++) {//Recorre el arreglo y va sumando cada vez que encuentra un anuncio de cierta categoria
+        for ($i=0; $i < 100; $i++) {//Recorre el arreglo y va sumando cada vez que encuentra un deslike de cierto anuncio
             foreach ($tabla_likes as $like) {
                 if ($like->id_anuncio == $i) {
                     if ($like->estado == 2) {
