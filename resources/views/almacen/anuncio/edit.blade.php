@@ -69,10 +69,28 @@
       </div>      
       <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
-              <label for="imagen">Imagen</label>
+              <label for="imagen">Imagen 1</label>
               <input type="file" name="imagen" class="form-control">
               @if (($anuncio->imagen)!="")
                 <img height="100px" width="100px"src="{{asset('imagenes/anuncios/'.$anuncio->imagen)}}">
+              @endif
+            </div>
+      </div>
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <div class="form-group">
+              <label for="imagen2">Imagen 2 </label>
+              <input type="file" name="imagen2" class="form-control">
+              @if (($anuncio->imagen2)!="")
+                <img height="100px" width="100px"src="{{asset('imagenes/anuncios/'.$anuncio->imagen2)}}">
+              @endif
+            </div>
+      </div>
+      <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
+        <div class="form-group">
+              <label for="imagen3">Imagen 3 </label>
+              <input type="file" name="imagen3" class="form-control">
+              @if (($anuncio->imagen3)!="")
+                <img height="100px" width="100px"src="{{asset('imagenes/anuncios/'.$anuncio->imagen3)}}">
               @endif
             </div>
       </div>

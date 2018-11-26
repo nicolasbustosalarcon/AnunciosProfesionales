@@ -50,15 +50,17 @@
     <div class="col-lg-6 col-sm-6 col-md-6 col-xs-12">
         <div class="form-group">
             <button class="btn btn-primary" type="submit">Aceptar</button>
+            {!!Form::close()!!}
+            <a href="../../secretaria">
+                <button class='btn btn-danger'>Volver</button>
+            </a>
         </div>
     </div>
     </div>
 </div>
-{!!Form::close()!!}
+
 <div>
-    <a href="../../secretaria">
-        <button class='btn btn-danger'>Volver</button>
-    </a>
+    
 </div>
 		
             

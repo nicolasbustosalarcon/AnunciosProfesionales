@@ -265,6 +265,18 @@ class AnuncioController extends Controller
         	$anuncio->imagen=$file->getClientOriginalName();
 
         }
+        if(Input::hasfile('imagen2')){
+            $file=Input::file('imagen2');
+            $file->move(public_path().'/imagenes/anuncios',$file->getClientOriginalName());
+            $anuncio->imagen2=$file->getClientOriginalName();
+
+        }
+        if(Input::hasfile('imagen3')){
+            $file=Input::file('imagen3');
+            $file->move(public_path().'/imagenes/anuncios',$file->getClientOriginalName());
+            $anuncio->imagen3=$file->getClientOriginalName();
+
+        }
         $anuncio->precio=$request->get('precio');
         $anuncio->tipo_anuncio=$request->get('tipo_anuncio');
         $anuncio->estado='2';
